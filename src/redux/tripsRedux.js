@@ -12,29 +12,41 @@ export const getFilteredTrips = ({trips, filters}) => {
   }
 
   // TODO - filter by duration
+  if(filters.duration){
+    const from = filters.duration.from;
+    const to = filters.duration.to;
+    output = output.filter(trip => trip.days >= from && trip.days<= to);
+  }
 
   // TODO - filter by tags
-
+  if(filters.tags.length!=0){
+    const tags = filters.tags;
+    
+    output = output.filter(trip => {
+      let tagExist = false;
+      trip.tags.forEach(tag => {
+        if(tags.includes(tag))
+          tagExist = true;
+      });
+      return tagExist;
+    });
+  }
   // TODO - sort by cost descending (most expensive goes first)
 
   return output;
 };
 
 export const getTripById = ({trips}, tripId) => {
-  const filtered = trips;
-
-  // TODO - filter trips by tripId
+  const filtered = trips.filter(trip => trip.id == tripId);
 
   console.log('filtering trips by tripId:', tripId, filtered);
   return filtered.length ? filtered[0] : {error: true};
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
-  const filtered = trips;
+  const filtered = trips.filter(trip => trip.country.code == countryCode);
 
-  // TODO - filter trips by countryCode
-
-  console.log('filtering trips by countryCode:', countryCode, filtered);
+  console.log('filtering trips bysasas countryCode:', countryCode, filtered);
   return filtered.length ? filtered : [{error: true}];
 };
 
