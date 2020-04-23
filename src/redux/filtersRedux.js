@@ -36,7 +36,7 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_TAG:
       return {
         ...statePart,
-        tags: [...statePart.tags.slice(action.payload + 1)],
+        tags: [...statePart.tags.filter(tag => tag !== action.payload)],
       };
     case CHANGE_DURATION:
       return {
