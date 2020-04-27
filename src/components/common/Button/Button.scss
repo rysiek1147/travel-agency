@@ -24,4 +24,10 @@
       background: darken($color-primary, 5%);
     }
   }
+
+  &:disabled {
+    background: $color-dark;
+    color: $color-background;
+    cursor: default;
+  }
 }
