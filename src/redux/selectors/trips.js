@@ -1,5 +1,3 @@
-/* SELECTORS */
-
 export const getAllTrips = ({trips}) => trips;
 
 export const getFilteredTrips = ({trips, filters}) => {
@@ -23,12 +21,7 @@ export const getFilteredTrips = ({trips, filters}) => {
     const {tags} = filters;
     
     output = output.filter(trip => {
-      let tagExist = false;
-      trip.tags.forEach(tag => {
-        if(tags.includes(tag))
-          tagExist = true;
-      });
-      return tagExist;
+      return trip.tags.some(tag => tags.some(el => el === tag));
     });
   }
   // TODO - sort by cost descending (most expensive goes first)
@@ -37,7 +30,7 @@ export const getFilteredTrips = ({trips, filters}) => {
 };
 
 export const getTripById = ({trips}, tripId) => {
-  const filtered = trips.filter(trip => trip.id == tripId);
+  const filtered = trips.filter(trip => trip.id === tripId);
 
   return filtered.length ? filtered[0] : {error: true};
 };
@@ -47,25 +40,3 @@ export const getTripsForCountry = ({trips}, countryCode) => {
 
   return filtered.length ? filtered : [{error: true}];
 };
-
-/* ACTIONS */
-
-/*
-// action name creator
-const reducerName = 'trips';
-const createActionName = name => `app/${reducerName}/${name}`;
-
-// action types
-
-
-// action creators
-
-
-// reducer
-export default function reducer(statePart = [], action = {}) {
-  switch (action.type) {
-    default:
-      return statePart;
-  }
-}
- */

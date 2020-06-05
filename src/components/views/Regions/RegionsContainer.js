@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import Regions from './Regions';
-import { getAllRegions } from '../../../redux/regionsRedux';
-import { getAllSubregions } from '../../../redux/subregionsRedux';
-import { getAllCountries } from '../../../redux/countriesRedux';
+import {getAllRegions} from '../../../redux/selectors/regions';
+import {getAllSubregions} from '../../../redux/selectors/subregions';
+import {getAllCountries} from '../../../redux/selectors/countries';
 
 const mapStateToProps = state => ({
   regions: getAllRegions(state),

@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import Country from './Country';
-import { getCountryByCode } from '../../../redux/countriesRedux';
-import { getTripsForCountry } from '../../../redux/tripsRedux';
+import {getCountryByCode} from '../../../redux/selectors/countries';
+import {getTripsForCountry} from '../../../redux/selectors/trips';
 
 const mapStateToProps = (state, props) => {
   const country = getCountryByCode(state, props.match.params.id);

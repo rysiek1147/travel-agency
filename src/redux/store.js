@@ -1,9 +1,9 @@
 import {combineReducers, createStore} from 'redux';
 import tripList from '../data/trips.json';
 
-import globalReducer from './globalRedux';
-import filtersReducer from './filtersRedux';
-import orderReducer from './orderRedux';
+import globalReducer from './reducers/global';
+import filtersReducer from './reducers/filters';
+import orderReducer from './reducers/order';
 
 // define initial state and shallow-merge initial data
 const initialState = {

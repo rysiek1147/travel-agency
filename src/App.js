@@ -15,7 +15,7 @@ import Info from './components/views/Info/Info';
 import NotFound from './components/views/NotFound/NotFound';
 
 import parseTrips from './utils/parseTrips';
-import {setMultipleStates} from './redux/globalRedux';
+import {setMultipleStates} from './redux/actions/global';
 
 import {AnimatedSwitch} from 'react-router-transition';
 
